@@ -15,18 +15,6 @@ h2 {
     padding-left: 1rem;
     width: 18ch;
 }
-#BackgroundImg {
-    content: "";
-    position: fixed;
-    z-index: 1;
-    top: 0;
-    background-image: url(../img/P2Pinvertido.png);
-    background-repeat: no-repeat;
-    background-position: center center;
-    opacity: 0.2;
-    height: 100%;
-    width: 100%;
-}
 #divBlockchain {
     width: 100%;
     position: relative;
