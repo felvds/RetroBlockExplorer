@@ -1,83 +1,58 @@
 h1 {
-    position: relative;
-    z-index: 2;
     margin: 2rem;
     font-size: large;
     font-weight: bold;
     padding-left: 1rem;
 }
 h2 {
-    position: relative;
-    float: left;
-    z-index: 2;
     margin-left: 2rem;
     font-size: medium;
     padding-left: 1rem;
-    width: 18ch;
-}
-#divBlockchain {
-    width: 100%;
-    position: relative;
-    float: left;
-    clear: left;
 }
 #ulBlockchain {
     list-style-type: none;
-    margin-left: 2em;
 }
 #ulBlockchain li {
     display: flex;
     height: 5em;
 }
 #ulBlockchain li:before {
-    content: '';
+    content: "";
     position: relative;
-    z-index: 2;
-    left: 7.5ch;
+    left: calc(2rem + 7.5ch + 2px);
     top: calc(3em + 2px);
     width: 0;
     height: calc(2em - 2px);
     border: 2px solid #000;
 }
 .blockNumber {
-    position: relative;
-    z-index: 2;
     padding: 15px;
     width: 15ch;
     height: 3em;
-    margin: 3px 0;
+    margin: 3px 0 0 2em;
     box-sizing: border-box;
     text-align: center;
     border: 2px solid #000;
 }
-.blockLink {
+.blockDescription:before {
     content: "";
+    display: inline-block;
     position: relative;
-    float: left;
-    z-index: 2;
-    top: 1.5em;
-    border: 2px solid transparent;
-    width: 30px;
-    height: 0px;
-}
-.selectedBlockLink {
-    border: 2px solid #000;
-}
-.selectedBlockLink:after {
-    content: "Fields:Values";
-    position: relative;
-    top: calc(-2.5em - 2px);
-    left: 5ch;
+    top: calc(-0.5em + 3px);
+    left: -24px;
+	border: 2px solid #000;
+	width: 20px;
+	height: 0px;
 }
 .blockDescription {
-    position: relative;
-    float: left;
+	position: relative;
+	top: 0;
+	left: 20px;
     box-sizing: border-box;
-    width: calc(100% - 30px - 15ch - 3em);
+    width: calc(100% - 20px - 15ch - 4rem);
     height: 28em;
-    padding: 15px;
     margin-top: 3px;
-    z-index: 2;
+    padding: 15px 0;
     word-wrap: break-word;
     white-space: pre-line;
     border: 2px solid #000;
@@ -87,13 +62,14 @@ h2 {
     display: inline-block;
 }
 footer {
-    position: fixed;
+	position: fixed;
     bottom: 0px;
-    z-index: 3;
     box-sizing: padding-box;
-    width: calc(100% - 2em);
+    width: calc(100% - 2rem);
     text-align: right;
-    padding-top: 0.5em;
-    padding-right: 2em;
+    
+    padding-right: 2rem;
+    background-color: #000;
+    color: #FFF;
     opacity: 0.5;
 }
