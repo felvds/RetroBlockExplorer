@@ -1,17 +1,10 @@
-document.querySelector("#divBlockchain").addEventListener("click", function(event) {
-    
-    document.querySelectorAll(".blockLink").forEach(function(blockLink){
-        blockLink.classList.remove("selectedBlockLink");
-    })
+document.querySelector("#ulBlockchain").addEventListener("click", function(event) {
     
     document.querySelectorAll(".blockDescription").forEach(function(blockDesc){
         blockDesc.classList.remove("selectedDescription");
     })
     
-    var divLink = event.target.nextElementSibling;
-    divLink.classList.add("selectedBlockLink");
-    
-    var divDescrip = divLink.nextElementSibling;
+    var divDescrip = event.target.nextElementSibling;
     divDescrip.classList.add("selectedDescription");
     
     if (divDescrip.textContent == "Block Description -- requesting..") {
