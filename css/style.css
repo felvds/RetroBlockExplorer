@@ -39,9 +39,9 @@ h2 {
     display: inline-block;
     position: relative;
     top: calc(-0.5em + 3px);
-    left: -24px;
+    left: -22px;
 	border: 2px solid #000;
-	width: 20px;
+	width: 14px;
 	height: 0px;
 }
 .blockDescription {

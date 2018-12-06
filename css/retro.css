@@ -7,22 +7,10 @@ h1 {
     background-color: #AA5500;
     text-shadow: 1px 1px #00AA00;
 }
-h2, .selectedBlockLink:after, footer {
+h2, footer {
     color: #AA5500;
 }
-#BackgroundImg {
-    content: "";
-    position: fixed;
-    z-index: 1;
-    top: 0;
-    background-image: url(../img/P2Pinvertido.png);
-    background-repeat: no-repeat;
-    background-position: center center;
-    opacity: 0.2;
-    height: 100%;
-    width: 100%;
-}
-#ulBlockchain li:before, .selectedBlockLink {
+#ulBlockchain li:before, .blockDescription:before {
     border: 2px solid #AA5500;
 }
 .blockNumber, .blockDescription {
