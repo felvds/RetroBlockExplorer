@@ -22,7 +22,7 @@ function LoadBlocks(lastblock) {
 
 function writeDescription (blockData) {
     var divDescription = document.querySelector(".selectedDescription");
-    var descriptString = "";
+    var descriptString = "Fields and Values:\n";
     
     for (var field in blockData) {
         if (field != "transactions" && field != "uncles") {
