@@ -15,8 +15,7 @@ h2, footer {
 }
 .blockNumber, .blockDescription {
     background-color: #AA5500;
-    border-width: 2px 3px 2px 3px;
-    border-color: #AA0000;
+    border: 2px solid #AA0000;
     outline: 2px solid #AA5500;
     box-shadow: 4px 4px #00AA00;
 }

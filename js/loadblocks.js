@@ -7,15 +7,16 @@ web3.eth.getBlockNumber()
     .catch(err => console.info(err));
 
 function LoadBlocks(lastblock) {
-    var lastBlockquotes = document.querySelectorAll(".blockNumber");
-    var i = 0;
+    var firstBlockNumber = document.querySelector(".firstBlockNumber");
+    firstBlockNumber.textContent = lastblock;
     
-    lastBlockquotes.forEach(function (lastBlockquote){
-        lastBlockquote.textContent = lastblock - i;
-        i = i + 1;
-    });
-    
-    var blockContent = web3.eth.getBlock(lastblock)
+    var ulBlockchain = document.querySelector("#ulBlockchain");
+    var i;
+    for (i = 1; i < 100; i++) {
+        ulBlockchain.appendChild(buildLi(lastblock - i));
+    }
+
+    web3.eth.getBlock(lastblock)
         .then(writeDescription)
         .catch(err => console.info(err));
 }
@@ -36,5 +37,20 @@ function writeDescription (blockData) {
     divDescription.textContent = descriptString;
 }
 
-// console.log(web3.eth.getBlock(web3.eth.blockNumber)
-//var dataArray = Object.keys(blockData);
+function buildLi(blockNumber) {
+    var newLi = document.createElement("li");
+    
+    var newDivNumber = document.createElement("div");
+    newDivNumber.classList.add("blockNumber");
+    newDivNumber.textContent = blockNumber;
+    
+    var newDivDescript = document.createElement("div");
+    newDivDescript.classList.add("blockDescription");
+    newDivDescript.textContent = "Block Description -- requesting..";
+    
+    newLi.appendChild(newDivNumber);
+    newLi.appendChild(newDivDescript);
+    
+    return newLi;
+}
+

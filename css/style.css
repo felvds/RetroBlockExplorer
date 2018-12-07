@@ -39,9 +39,9 @@ h2 {
     display: inline-block;
     position: relative;
     top: calc(-0.5em + 3px);
-    left: -22px;
+    left: calc(-1em - 22px);
 	border: 2px solid #000;
-	width: 14px;
+	width: 16px;
 	height: 0px;
 }
 .blockDescription {
@@ -49,10 +49,10 @@ h2 {
 	top: 0;
 	left: 20px;
     box-sizing: border-box;
-    width: calc(100% - 20px - 15ch - 4rem);
+    width: calc(100% - 16px - 15ch - 4rem);
     height: 28em;
     margin-top: 3px;
-    padding: 15px 0;
+    padding: 1rem;
     word-wrap: break-word;
     white-space: pre-line;
     border: 2px solid #000;
