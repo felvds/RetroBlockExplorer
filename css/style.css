@@ -34,7 +34,7 @@ h2 {
     text-align: center;
     border: 2px solid #000;
 }
-.blockDescription:before {
+.blockLink {
     content: "";
     display: inline-block;
     position: relative;
@@ -50,13 +50,17 @@ h2 {
 	left: 20px;
     box-sizing: border-box;
     width: calc(100% - 16px - 15ch - 4rem);
-    height: 28em;
+    height: 48em;
+    overflow: auto;
     margin-top: 3px;
     padding: 1rem;
     word-wrap: break-word;
     white-space: pre-line;
     border: 2px solid #000;
     display: none;
+}
+.blockDescription:after {
+    content: attr(data-content);
 }
 .selectedDescription {
     display: inline-block;

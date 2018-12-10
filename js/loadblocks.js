@@ -7,7 +7,7 @@ web3.eth.getBlockNumber()
     .catch(err => console.info(err));
 
 function LoadBlocks(lastblock) {
-    var firstBlockNumber = document.querySelector(".firstBlockNumber");
+    var firstBlockNumber = document.querySelector("#firstBlockNumber");
     firstBlockNumber.textContent = lastblock;
     
     var ulBlockchain = document.querySelector("#ulBlockchain");
@@ -23,14 +23,21 @@ function LoadBlocks(lastblock) {
 
 function writeDescription (blockData) {
     var divDescription = document.querySelector(".selectedDescription");
-    var descriptString = "Fields and Values:\n";
+    var descriptString = "Fields and Values:\n\n";
+    var transactionString = "\nTransactions:\n"
     
     for (var field in blockData) {
-        if (field != "transactions" && field != "uncles") {
-            descriptString = descriptString.concat(field);
-            descriptString = descriptString.concat(": ");
-            descriptString = descriptString.concat(blockData[field]);
-            descriptString = descriptString.concat("\n");
+        if (field != "uncles") {
+            if (field != "transactions") {
+                descriptString = descriptString.concat(field);
+                descriptString = descriptString.concat(": ");
+                descriptString = descriptString.concat(blockData[field]);
+                descriptString = descriptString.concat("\n");
+            } else {
+                transactionString = transactionString.concat(blockData[field]);
+                transactionString = transactionString.replace(/,/g,"\n")
+                divDescription.dataset.content = transactionString;
+            }
         }
     }
     
@@ -43,6 +50,7 @@ function buildLi(blockNumber) {
     var newDivNumber = document.createElement("div");
     newDivNumber.classList.add("blockNumber");
     newDivNumber.textContent = blockNumber;
+    newDivNumber.addEventListener("click", clickBlock);
     
     var newDivDescript = document.createElement("div");
     newDivDescript.classList.add("blockDescription");
