@@ -44,6 +44,9 @@ h2 {
 	width: 16px;
 	height: 0px;
 }
+.blockDescription:before {
+    content: attr(data-header);
+}
 .blockDescription {
 	position: relative;
 	top: 0;
@@ -60,7 +63,7 @@ h2 {
     display: none;
 }
 .blockDescription:after {
-    content: attr(data-content);
+    content: attr(data-transaction);
 }
 .selectedDescription {
     display: inline-block;

@@ -23,8 +23,8 @@ function LoadBlocks(lastblock) {
 
 function writeDescription (blockData) {
     var divDescription = document.querySelector(".selectedDescription");
-    var descriptString = "Fields and Values:\n\n";
-    var transactionString = "\nTransactions:\n"
+    var descriptString = "Header:\n\n";
+    var transactionString = "\nTransactions:\n\n"
     
     for (var field in blockData) {
         if (field != "uncles") {
@@ -35,13 +35,12 @@ function writeDescription (blockData) {
                 descriptString = descriptString.concat("\n");
             } else {
                 transactionString = transactionString.concat(blockData[field]);
-                transactionString = transactionString.replace(/,/g,"\n")
-                divDescription.dataset.content = transactionString;
+                transactionString = transactionString.replace(/,/g,"\n");
             }
         }
     }
-    
-    divDescription.textContent = descriptString;
+    divDescription.setAttribute("data-header",descriptString);
+    divDescription.textContent = transactionString;
 }
 
 function buildLi(blockNumber) {
@@ -55,6 +54,7 @@ function buildLi(blockNumber) {
     var newDivDescript = document.createElement("div");
     newDivDescript.classList.add("blockDescription");
     newDivDescript.textContent = "Block Description -- requesting..";
+    newDivDescript.addEventListener("dblclick", clickDescription);
     
     newLi.appendChild(newDivNumber);
     newLi.appendChild(newDivDescript);
