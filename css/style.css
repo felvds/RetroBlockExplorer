@@ -1,3 +1,6 @@
+body {
+    font-family: "Consolas", monospace;
+}
 h1 {
     margin: 2rem;
     font-size: large;
@@ -29,31 +32,27 @@ h2 {
     padding: 15px;
     width: 15ch;
     height: 3em;
-    margin: 3px 0 0 2em;
+    margin: 3px 0 0 2rem;
     box-sizing: border-box;
     text-align: center;
     border: 2px solid #000;
 }
 .blockLink {
     content: "";
-    display: inline-block;
     position: relative;
-    top: calc(-0.5em + 3px);
-    left: calc(-1em - 22px);
-	border: 2px solid #000;
-	width: 16px;
+    top: 1.5rem;
+    border: 2px solid #000;
+	width: 14px;
 	height: 0px;
-}
-.blockDescription:before {
-    content: attr(data-header);
+	display: none;
 }
 .blockDescription {
-	position: relative;
-	top: 0;
-	left: 20px;
+	position: fixed;
+	top: calc(6rem + 2px);
+	left: calc(2rem + 15ch + 22px);
     box-sizing: border-box;
     width: calc(100% - 16px - 15ch - 4rem);
-    height: 48em;
+    height: calc(100% - 6rem - 24px);
     overflow: auto;
     margin-top: 3px;
     padding: 1rem;
@@ -62,11 +61,12 @@ h2 {
     border: 2px solid #000;
     display: none;
 }
-.blockDescription:after {
-    content: attr(data-transaction);
-}
-.selectedDescription {
+.selectedDescription, .selectedLink {
     display: inline-block;
+}
+.fullHeight {
+    top: 0.5rem;
+    height: calc(100% - 0.5rem - 24px);
 }
 footer {
 	position: fixed;

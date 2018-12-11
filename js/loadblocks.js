@@ -6,41 +6,38 @@ web3.eth.getBlockNumber()
     .then(LoadBlocks)
     .catch(err => console.info(err));
 
-function LoadBlocks(lastblock) {
-    var firstBlockNumber = document.querySelector("#firstBlockNumber");
-    firstBlockNumber.textContent = lastblock;
-    
+function LoadBlocks(blockNumber) {
     var ulBlockchain = document.querySelector("#ulBlockchain");
     var i;
     for (i = 1; i < 100; i++) {
-        ulBlockchain.appendChild(buildLi(lastblock - i));
+        ulBlockchain.appendChild(buildLi(blockNumber - i));
     }
-
-    web3.eth.getBlock(lastblock)
+    
+    document.querySelector("#firstBlockNumber").textContent = blockNumber;
+    
+    web3.eth.getBlock(blockNumber)
         .then(writeDescription)
         .catch(err => console.info(err));
+    
+    document.querySelector(".selectedDescription").classList.add("Block" + blockNumber);
 }
 
 function writeDescription (blockData) {
     var divDescription = document.querySelector(".selectedDescription");
     var descriptString = "Header:\n\n";
-    var transactionString = "\nTransactions:\n\n"
+    var transactionString = "\nTransactions - doubleclick to see more info:\n\n"
     
     for (var field in blockData) {
         if (field != "uncles") {
             if (field != "transactions") {
-                descriptString = descriptString.concat(field);
-                descriptString = descriptString.concat(": ");
-                descriptString = descriptString.concat(blockData[field]);
-                descriptString = descriptString.concat("\n");
+                descriptString = descriptString + field + ": " + blockData[field] + "\n";
             } else {
-                transactionString = transactionString.concat(blockData[field]);
+                transactionString = transactionString + blockData[field];
                 transactionString = transactionString.replace(/,/g,"\n");
             }
         }
     }
-    divDescription.setAttribute("data-header",descriptString);
-    divDescription.textContent = transactionString;
+    divDescription.textContent = descriptString + transactionString;
 }
 
 function buildLi(blockNumber) {
@@ -51,13 +48,11 @@ function buildLi(blockNumber) {
     newDivNumber.textContent = blockNumber;
     newDivNumber.addEventListener("click", clickBlock);
     
-    var newDivDescript = document.createElement("div");
-    newDivDescript.classList.add("blockDescription");
-    newDivDescript.textContent = "Block Description -- requesting..";
-    newDivDescript.addEventListener("dblclick", clickDescription);
+    var newDivLink = document.createElement("div");
+    newDivLink.classList.add("blockLink");
     
     newLi.appendChild(newDivNumber);
-    newLi.appendChild(newDivDescript);
+    newLi.appendChild(newDivLink);
     
     return newLi;
 }

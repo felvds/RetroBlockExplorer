@@ -5,8 +5,8 @@
     <title>Blockchain Studio - BlockExplorer</title>
     <link rel="shortcut icon" href="img/blockchain-icon-1.png">
     <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/font.css" type="text/css" charset="utf-8" />
     <link rel="stylesheet" href="css/style.css">
+    <!-- <link rel="stylesheet" href="css/font.css" type="text/css" charset="utf-8" /> -->
     <!-- <link rel="stylesheet" href="css/retro.css"> -->
 </head>
 <body id="bodyBlockchain">
@@ -14,13 +14,14 @@
         <h1>Ethereum MainNet - click on a block to visualize content</h1>
         <h2>Block Number:</h2>
     </header>
-    <main>
+    <main id="mainBlockchain">
              <ul id="ulBlockchain">
                 <li id="liBlockchain">
                     <div id=firstBlockNumber class="blockNumber">Building Blockchain</div>
-					<div class="blockDescription selectedDescription">Block Description -- requesting..</div>
+					<div class="blockLink selectedLink"></div>
 				</li>
             </ul>
+            <div class="blockDescription selectedDescription">Loading block description..</div>
     </main>
     <script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js@1.0.0-beta.36/dist/web3.min.js" integrity="sha256-nWBTbvxhJgjslRyuAKJHK+XcZPlCnmIAAMixz6EefVk=" crossorigin="anonymous"></script>
     <script src="js/loadblocks.js"></script>
