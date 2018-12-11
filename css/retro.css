@@ -10,7 +10,7 @@ h1 {
 h2, footer {
     color: #AA5500;
 }
-#ulBlockchain li:before, .blockDescription:before {
+#ulBlockchain li:before, .blockLink {
     border: 2px solid #AA5500;
 }
 .blockNumber, .blockDescription {
@@ -22,7 +22,7 @@ h2, footer {
 #easterEgg {
     position: fixed;
     top: 0;
-    left: 0;
+    left: calc(2rem + 14px);
     background-image: url(../img/sierra_002.png);
     background-repeat: no-repeat;
     background-position: center center;

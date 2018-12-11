@@ -3,6 +3,7 @@ document.querySelector("#firstBlockNumber").addEventListener("click", clickBlock
 document.querySelector(".blockDescription").addEventListener("dblclick", clickDescription);
 
 document.querySelector(".titles").addEventListener("click", function(event) {
+    cleanBackground();
     document.querySelector("#easterEgg").style.display = "block";
     setTimeout(function(){
         location.reload(true);
@@ -10,16 +11,10 @@ document.querySelector(".titles").addEventListener("click", function(event) {
 });
 
 function clickBlock(event) {
-    document.querySelectorAll(".blockLink").forEach(function(blockDesc){
-        blockDesc.classList.remove("selectedLink");
-    });
+    cleanBackground();
     
     var divLink = event.target.nextElementSibling;
     divLink.classList.add("selectedLink");
-    
-    document.querySelectorAll(".blockDescription").forEach(function(blockDesc){
-        blockDesc.classList.remove("selectedDescription");
-    });
     
     var blockNumber = event.target.textContent;
     var divDescription = document.querySelector(".Block" + blockNumber);
@@ -34,6 +29,15 @@ function clickBlock(event) {
     }
     
     adjustHeight();
+}
+
+function cleanBackground() {
+    document.querySelectorAll(".blockLink").forEach(function(blockDesc){
+        blockDesc.classList.remove("selectedLink");
+    });
+    document.querySelectorAll(".blockDescription").forEach(function(blockDesc){
+        blockDesc.classList.remove("selectedDescription");
+    });
 }
 
 function clickDescription (event) {
